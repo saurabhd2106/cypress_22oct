@@ -52,7 +52,13 @@ describe("API Testing", function () {
                 rs.verifyOk(response)
 
                 articleApi.verifyAddArticleSuccess(response, article_payload.article.title)
+
+                const slug = articleApi.getSlug(response)
+
+                articleApi.deleteArticle(token, slug)
             })
+
+            
 
 
 

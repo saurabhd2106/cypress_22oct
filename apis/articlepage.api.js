@@ -20,6 +20,14 @@ export class ArticlePageApi {
         expect(response.body.article.title).to.contains(title)
 
     }
+
+    getSlug(response){
+        return response.body.article.slug
+    }
+
+    deleteArticle(token, slug){
+        return restclient.sendDeleteRequest("api/articles", slug)
+    }
 }
 
 export const articleApi = new ArticlePageApi()
